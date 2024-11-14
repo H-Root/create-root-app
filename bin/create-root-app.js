@@ -23,8 +23,8 @@ console.log(`
 ╚██████╗██║  ██║███████╗██║  ██║   ██║   ███████╗    ██║  ██║╚██████╔╝╚██████╔╝   ██║      ██║  ██║██║     ██║     
  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝    ╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝      ╚═╝  ╚═╝╚═╝     ╚═╝     
 
-your go-to for a ready-to-roll, well-structured React app with smart tooling built-in. 
-                Skip the setup drama and start coding faster! 🚀
+        your go-to for a ready-to-roll, well-structured React app with smart tooling built-in. 
+                        Skip the setup drama and start coding faster! 🚀
 `);
 
 program
@@ -39,7 +39,13 @@ program
 				message: "Choose a template to start with:",
 				choices: [
 					{ name: "CRA", value: "cra" },
-					{ name: "Vite", value: "vite" },
+					{ name: "CRA Typescript", value: "cra-ts" },
+					{ name: "Vite... Coming Soon ⏳", value: "vite", disabled: true },
+					{
+						name: "Vite Typescript... Coming Soon ⏳",
+						value: "vite-ts",
+						disabled: true,
+					},
 				],
 			},
 		]);
