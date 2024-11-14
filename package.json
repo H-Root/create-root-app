@@ -1,0 +1,27 @@
+{
+  "name": "create-root-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "create-root-app": "./bin/create-root-app.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/H-Root/create-root-app.git"
+  },
+  "author": "Hans Root",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/H-Root/create-root-app/issues"
+  },
+  "homepage": "https://github.com/H-Root/create-root-app#readme",
+  "dependencies": {
+    "commander": "^12.1.0",
+    "inquirer": "^12.1.0"
+  }
+}
