@@ -1,7 +1,7 @@
 {
   "name": "create-root-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Opinionated CLI for creating React apps with predefined tools and structure",
   "main": "index.js",
   "type": "module",
   "bin": {
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/H-Root/create-root-app.git"
   },
   "author": "Hans Root",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/H-Root/create-root-app/issues"
   },
