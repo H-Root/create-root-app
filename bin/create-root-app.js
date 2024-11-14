@@ -64,9 +64,7 @@ program
 		// Copy the selected template into the new project directory
 		fs.cpSync(templatePath, projectPath, { recursive: true });
 		console.log(
-			`Project '${projectName}' created with ${
-				template === "cra" ? "Create React App" : "Vite"
-			} template at ${projectPath}`
+			`Project '${projectName}' created with ${template} template at ${projectPath}`
 		);
 
 		// Install dependencies
