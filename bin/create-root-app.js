@@ -8,7 +8,11 @@ import { exec } from "child_process";
 import ora from "ora";
 import axios from "axios";
 import updateNotifier from "update-notifier";
-import pkg from "../package.json" assert { type: "json" };
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+// Import JSON using require
+const pkg = require('../package.json');
 
 const notifier = updateNotifier({ pkg });
 

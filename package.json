@@ -1,6 +1,6 @@
 {
 	"name": "create-root-app",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Opinionated CLI for creating React apps with predefined tools and structure",
 	"main": "index.js",
 	"type": "module",
