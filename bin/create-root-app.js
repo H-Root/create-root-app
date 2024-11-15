@@ -7,12 +7,23 @@ import path from "path";
 import { exec } from "child_process";
 import ora from "ora";
 import axios from "axios";
+import updateNotifier from "update-notifier";
+import pkg from "../package.json" assert { type: "json" };
+
+const notifier = updateNotifier({ pkg });
+
+if (notifier.update) {
+	notifier.notify({
+		message: `Update available: ${notifier.update.current} → ${notifier.update.latest}\nRun "npm install -g ${pkg.name}" to update.`,
+		isGlobal: true,
+	});
+}
 
 const program = new Command();
 
 program
-	.name("my-cli")
-	.version("1.0.0")
+	.name("create-root-app")
+	.version("1.0.1")
 	.description("CLI to create a new project with custom tools");
 
 console.log(`
@@ -31,7 +42,6 @@ program
 	.command("init <project-name>")
 	.description("Initialize a new project with a selected template")
 	.action(async (projectName) => {
-		// Prompt user for template selection
 		const { template } = await inquirer.prompt([
 			{
 				type: "list",
@@ -50,7 +60,6 @@ program
 			},
 		]);
 
-		// Define paths based on the template choice
 		const projectPath = path.join(process.cwd(), projectName);
 		const templatePath = path.join(
 			new URL(".", import.meta.url).pathname,
@@ -61,13 +70,11 @@ program
 			fs.mkdirSync(projectPath, { recursive: true });
 		}
 
-		// Copy the selected template into the new project directory
 		fs.cpSync(templatePath, projectPath, { recursive: true });
 		console.log(
 			`Project '${projectName}' created with ${template} template at ${projectPath}`
 		);
 
-		// Install dependencies
 		const spinner = ora("Installing dependencies...").start();
 
 		try {
@@ -80,7 +87,6 @@ program
 				"Installing dependencies... Could not fetch a joke, but we’ll still keep going!";
 		}
 
-		// Execute dependency installation and manage loader
 		exec(`cd ${projectPath} && npm install`, (err, stdout, stderr) => {
 			if (err) {
 				spinner.fail(`Error installing dependencies: ${stderr}`);
