@@ -27,7 +27,7 @@ const program = new Command();
 
 program
 	.name("create-root-app")
-	.version("1.0.3")
+	.version("1.0.4")
 	.description("CLI to create a new project with custom tools");
 
 console.log(`
