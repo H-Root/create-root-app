@@ -8,26 +8,19 @@ import { exec } from "child_process";
 import ora from "ora";
 import axios from "axios";
 import updateNotifier from "update-notifier";
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
 
-// Import JSON using require
-const pkg = require('../package.json');
+import packageJson from "../package.json" assert { type: "json" };
 
-const notifier = updateNotifier({ pkg });
-
-if (notifier.update) {
-	notifier.notify({
-		message: `Update available: ${notifier.update.current} → ${notifier.update.latest}\nRun "npm install -g ${pkg.name}" to update.`,
-		isGlobal: true,
-	});
-}
+updateNotifier({
+	pkg: packageJson,
+	updateCheckInterval: 1000 * 60 * 60 * 24,
+}).notify();
 
 const program = new Command();
 
 program
 	.name("create-root-app")
-	.version("1.0.4")
+	.version("1.0.5")
 	.description("CLI to create a new project with custom tools");
 
 console.log(`
